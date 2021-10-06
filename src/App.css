@@ -1,0 +1,21 @@
+div,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+}
+.App {
+  text-align: center;
+}
