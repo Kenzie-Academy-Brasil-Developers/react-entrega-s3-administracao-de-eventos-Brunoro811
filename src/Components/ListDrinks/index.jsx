@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { CasamentoContext } from "../../Providers/Casamento";
-import { Close, Container, Modal } from "./styles";
 import api from "../../Services/Api";
+import { Close, Container, Modal } from "./styles";
 import CardBeers from "../CardBeers";
 import EventButton from "../EventButton";
+import { CasamentoContext } from "../../Providers/Casamento";
+import { ConfraternizacaoContext } from "../../Providers/Confraternizacao";
+import { FormaturaContext } from "../../Providers/Formatura";
 function ListDrinks() {
   const [selectItem, setSelectItem] = useState({});
   const [isSelectEvent, setIsSelectEvent] = useState(false);
@@ -37,6 +39,18 @@ function ListDrinks() {
     addCartToCasamento,
     removedCartToCasamento,
   } = useContext(CasamentoContext);
+  const {
+    counterCartConfraternizacao,
+    cartConfraternizacao,
+    addCartToConfraternizacao,
+    removedCartToConfraternizacao,
+  } = useContext(ConfraternizacaoContext);
+  const {
+    counterCartFormatura,
+    cartFormatura,
+    addCartToFormatura,
+    removedCartToFormatura,
+  } = useContext(FormaturaContext);
   return (
     <>
       <Container>
@@ -47,7 +61,9 @@ function ListDrinks() {
       </Container>
       {isSelectEvent && (
         <Modal>
-          {console.log(cartCasamento)}
+          {/* {console.log(cartCasamento)}
+          {console.log(cartConfraternizacao)}
+          {console.log(cartFormatura)} */}
           <div>
             <Close onClick={handleCloseModal}>X</Close>
           </div>
@@ -56,11 +72,21 @@ function ListDrinks() {
           <EventButton
             callback={addCartToCasamento}
             param={selectItem}
-            counterCartCasamento={counterCartCasamento}
+            counter={counterCartCasamento}
             event={"Casamento"}
           />
-          <EventButton event={"Confraternização"} />
-          <EventButton event={"Formatura"} />
+          <EventButton
+            callback={addCartToConfraternizacao}
+            counter={counterCartConfraternizacao}
+            param={selectItem}
+            event={"Confraternização"}
+          />
+          <EventButton
+            callback={addCartToFormatura}
+            counter={counterCartFormatura}
+            param={selectItem}
+            event={"Formatura"}
+          />
           {cartCasamento[0] &&
             cartCasamento.map((element, indice) => (
               <p key={indice}>
