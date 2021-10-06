@@ -5,9 +5,7 @@ import ListDrinks from "./Components/ListDrinks";
 function App() {
   return (
     <div className="App">
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
+      <h2>Beers</h2>
       <ListDrinks />
     </div>
   );
