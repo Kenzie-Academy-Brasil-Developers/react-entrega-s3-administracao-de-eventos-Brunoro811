@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import api from "../../Services/Api";
-import { Close, Container, Modal } from "./styles";
+import { Close, Container, Modal, ModalContainer } from "./styles";
 import CardBeers from "../CardBeers";
 import EventButton from "../EventButton";
 import { CasamentoContext } from "../../Providers/Casamento";
@@ -41,31 +41,33 @@ function ListDrinks() {
           ))}
       </Container>
       {isSelectEvent && (
-        <Modal>
-          <div>
-            <Close onClick={handleCloseModal}>X</Close>
-          </div>
+        <ModalContainer>
+          <Modal isSelectEvent={isSelectEvent}>
+            <div>
+              <Close onClick={handleCloseModal}>X</Close>
+            </div>
 
-          <h4>Eventos : </h4>
-          <EventButton
-            callback={addCartToCasamento}
-            param={selectItem}
-            counter={counterCartCasamento}
-            event={"Casamento"}
-          />
-          <EventButton
-            callback={addCartToConfraternizacao}
-            counter={counterCartConfraternizacao}
-            param={selectItem}
-            event={"Confraternização"}
-          />
-          <EventButton
-            callback={addCartToFormatura}
-            counter={counterCartFormatura}
-            param={selectItem}
-            event={"Formatura"}
-          />
-        </Modal>
+            <h4>Eventos : </h4>
+            <EventButton
+              callback={addCartToCasamento}
+              param={selectItem}
+              counter={counterCartCasamento}
+              event={"Casamento"}
+            />
+            <EventButton
+              callback={addCartToConfraternizacao}
+              counter={counterCartConfraternizacao}
+              param={selectItem}
+              event={"Confraternização"}
+            />
+            <EventButton
+              callback={addCartToFormatura}
+              counter={counterCartFormatura}
+              param={selectItem}
+              event={"Formatura"}
+            />
+          </Modal>
+        </ModalContainer>
       )}
     </>
   );
