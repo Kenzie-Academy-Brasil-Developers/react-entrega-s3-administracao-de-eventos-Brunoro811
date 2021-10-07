@@ -3,7 +3,7 @@ function EventButton({ callback, param, event, counter }) {
   return (
     <ContainerButton onClick={() => callback(param)}>
       {event}
-      {counter}
+      <span>{counter}</span>
     </ContainerButton>
   );
 }

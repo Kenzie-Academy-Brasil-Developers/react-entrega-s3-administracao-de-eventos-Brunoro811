@@ -5,14 +5,16 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  box-shadow: 0px 0px 3px 0px #000000;
+  box-shadow: 0px 0px 5px 0px #000000;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #ffffff;
+  border-radius: 3px;
 `;
 export const Modal = styled.div`
   width: 100%;
-  max-width: 200px;
+  max-width: 160px;
   border-radius: 3px;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px 0px #000000;

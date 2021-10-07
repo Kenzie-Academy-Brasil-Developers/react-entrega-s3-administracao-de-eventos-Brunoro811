@@ -13,18 +13,10 @@ function ListDrinks() {
     setIsSelectEvent(!isSelectEvent);
   };
   const handleSelectItem = (item) => {
-    console.log(item);
     setSelectItem(item);
     handleCloseModal();
   };
-  // const handleIsSelectEvent = (item) => {
-  //   if (!isSelectEvent) {
-  //     setIsSelectEvent(!isSelectEvent);
-  //   }
-  //   if (item) {
-  //     addCartToCasamento(item);
-  //   }
-  // };
+
   const [beers, setBeers] = useState([]);
   useEffect(() => {
     api
@@ -33,24 +25,13 @@ function ListDrinks() {
       .catch((error) => console.log(error));
   }, []);
   // providers
-  const {
-    counterCartCasamento,
-    cartCasamento,
-    addCartToCasamento,
-    removedCartToCasamento,
-  } = useContext(CasamentoContext);
-  const {
-    counterCartConfraternizacao,
-    cartConfraternizacao,
-    addCartToConfraternizacao,
-    removedCartToConfraternizacao,
-  } = useContext(ConfraternizacaoContext);
-  const {
-    counterCartFormatura,
-    cartFormatura,
-    addCartToFormatura,
-    removedCartToFormatura,
-  } = useContext(FormaturaContext);
+  const { counterCartCasamento, addCartToCasamento } =
+    useContext(CasamentoContext);
+  const { counterCartConfraternizacao, addCartToConfraternizacao } = useContext(
+    ConfraternizacaoContext
+  );
+  const { counterCartFormatura, addCartToFormatura } =
+    useContext(FormaturaContext);
   return (
     <>
       <Container>
@@ -61,9 +42,6 @@ function ListDrinks() {
       </Container>
       {isSelectEvent && (
         <Modal>
-          {/* {console.log(cartCasamento)}
-          {console.log(cartConfraternizacao)}
-          {console.log(cartFormatura)} */}
           <div>
             <Close onClick={handleCloseModal}>X</Close>
           </div>
@@ -87,13 +65,6 @@ function ListDrinks() {
             param={selectItem}
             event={"Formatura"}
           />
-          {cartCasamento[0] &&
-            cartCasamento.map((element, indice) => (
-              <p key={indice}>
-                {element.name}
-                <Close onClick={() => removedCartToCasamento(element)}>X</Close>
-              </p>
-            ))}
         </Modal>
       )}
     </>
