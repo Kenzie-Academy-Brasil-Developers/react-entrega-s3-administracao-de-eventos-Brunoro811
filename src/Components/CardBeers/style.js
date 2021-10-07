@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Card = styled.ul`
   width: 90%;
   max-width: 200px;
-  height: 250px;
+  height: 270px;
   padding: 10px;
   box-shadow: 0px 0px 4px 0px #000000;
   display: inline-flex;
