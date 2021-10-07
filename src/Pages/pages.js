@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 90%;
   max-width: 1200px;
-  min-height: 300px;
+  min-height: 280px;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -12,6 +12,9 @@ export const Container = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 0px 5px 0px #000000;
   border-radius: 5px;
+  @media (min-width: 600px) {
+    justify-content: flex-start;
+  }
   div {
     flex-basis: 100%;
     text-align: center;

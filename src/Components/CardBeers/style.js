@@ -9,6 +9,7 @@ export const Card = styled.ul`
   display: inline-flex;
   flex-wrap: wrap;
   margin: 5px;
+  align-items: flex-end;
   li {
     width: 90%;
     margin: 0 auto;
